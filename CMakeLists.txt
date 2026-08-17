@@ -42,17 +42,17 @@ add_library(map_viewer_lib
   src/map_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(map_viewer_lib
-  ament_index_cpp
-  nav_msgs
-  rclcpp
+target_link_libraries(map_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  nav_msgs::nav_msgs
+  rclcpp::rclcpp
 )
 target_include_directories(map_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(map_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(map_viewer src/map_viewer.cpp)
-ament_target_dependencies(map_viewer
-  rclcpp
+target_link_libraries(map_viewer
+  rclcpp::rclcpp
 )
 target_include_directories(map_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(map_viewer map_viewer_lib)
@@ -66,18 +66,18 @@ add_library(image_viewer_lib
   src/image_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(image_viewer_lib
-  ament_index_cpp
-  rclcpp
-  sensor_msgs
+target_link_libraries(image_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(image_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(image_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(image_viewer src/image_viewer.cpp)
-ament_target_dependencies(image_viewer
-  rclcpp
-  sensor_msgs
+target_link_libraries(image_viewer
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(image_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(image_viewer image_viewer_lib)
@@ -91,18 +91,18 @@ add_library(joy_viewer_lib
   src/joy_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(joy_viewer_lib
-  ament_index_cpp
-  rclcpp
-  sensor_msgs
+target_link_libraries(joy_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(joy_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(joy_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(joy_viewer src/joy_viewer.cpp)
-ament_target_dependencies(joy_viewer
-  rclcpp
-  sensor_msgs
+target_link_libraries(joy_viewer
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(joy_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(joy_viewer joy_viewer_lib)
@@ -116,20 +116,20 @@ add_library(imu_viewer_lib
   src/imu_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(imu_viewer_lib
-  ament_index_cpp
-  geometry_msgs
-  rclcpp
-  sensor_msgs
+target_link_libraries(imu_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  geometry_msgs::geometry_msgs
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(imu_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(imu_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(imu_viewer src/imu_viewer.cpp)
-ament_target_dependencies(imu_viewer
-  geometry_msgs
-  rclcpp
-  sensor_msgs
+target_link_libraries(imu_viewer
+  geometry_msgs::geometry_msgs
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(imu_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(imu_viewer imu_viewer_lib)
@@ -143,18 +143,18 @@ add_library(laser_scan_viewer_lib
   src/laser_scan_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(laser_scan_viewer_lib
-  ament_index_cpp
-  rclcpp
-  sensor_msgs
+target_link_libraries(laser_scan_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(laser_scan_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(laser_scan_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(laser_scan_viewer src/laser_scan_viewer.cpp)
-ament_target_dependencies(laser_scan_viewer
-  rclcpp
-  sensor_msgs
+target_link_libraries(laser_scan_viewer
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 target_include_directories(laser_scan_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(laser_scan_viewer laser_scan_viewer_lib)
@@ -168,16 +168,16 @@ add_library(parameter_commander_lib
   src/parameter_commander_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(parameter_commander_lib
-  ament_index_cpp
-  rclcpp
+target_link_libraries(parameter_commander_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
 )
 target_include_directories(parameter_commander_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(parameter_commander_lib ${NCURSESW_LIBRARY})
 
 add_executable(parameter_commander src/parameter_commander.cpp)
-ament_target_dependencies(parameter_commander
-  rclcpp
+target_link_libraries(parameter_commander
+  rclcpp::rclcpp
 )
 target_include_directories(parameter_commander PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(parameter_commander parameter_commander_lib)
@@ -191,11 +191,11 @@ add_library(topic_monitor_lib
   src/topic_monitor_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(topic_monitor_lib
-  ament_index_cpp
-  rclcpp
-  sensor_msgs
-  rosidl_typesupport_introspection_cpp
+target_link_libraries(topic_monitor_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
+  rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
 )
 target_include_directories(topic_monitor_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(
@@ -209,10 +209,10 @@ target_link_libraries(
 )
 
 add_executable(topic_monitor src/topic_monitor.cpp)
-ament_target_dependencies(topic_monitor
-  rclcpp
-  sensor_msgs
-  rosidl_typesupport_introspection_cpp
+target_link_libraries(topic_monitor
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
+  rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
 )
 target_include_directories(topic_monitor PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(topic_monitor topic_monitor_lib)
@@ -226,18 +226,18 @@ add_library(log_viewer_lib
   src/log_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(log_viewer_lib
-  ament_index_cpp
-  rcl_interfaces
-  rclcpp
+target_link_libraries(log_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  rcl_interfaces::rcl_interfaces
+  rclcpp::rclcpp
 )
 target_include_directories(log_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(log_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(log_viewer src/log_viewer.cpp)
-ament_target_dependencies(log_viewer
-  rcl_interfaces
-  rclcpp
+target_link_libraries(log_viewer
+  rcl_interfaces::rcl_interfaces
+  rclcpp::rclcpp
 )
 target_include_directories(log_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(log_viewer log_viewer_lib)
@@ -251,25 +251,25 @@ add_library(diagnostics_viewer_lib
   src/diagnostics_viewer_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(diagnostics_viewer_lib
-  ament_index_cpp
-  diagnostic_msgs
-  rclcpp
+target_link_libraries(diagnostics_viewer_lib
+  ament_index_cpp::ament_index_cpp
+  diagnostic_msgs::diagnostic_msgs
+  rclcpp::rclcpp
 )
 target_include_directories(diagnostics_viewer_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(diagnostics_viewer_lib ${NCURSESW_LIBRARY})
 
 add_executable(diagnostics_viewer src/diagnostics_viewer.cpp)
-ament_target_dependencies(diagnostics_viewer
-  diagnostic_msgs
-  rclcpp
+target_link_libraries(diagnostics_viewer
+  diagnostic_msgs::diagnostic_msgs
+  rclcpp::rclcpp
 )
 target_include_directories(diagnostics_viewer PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(diagnostics_viewer diagnostics_viewer_lib)
 
 ## Manual diagnostics publisher kept on disk for ad hoc local testing, but disabled by default.
 # add_executable(diagnostics_mock_node test/diagnostics_mock_node.cpp)
-# ament_target_dependencies(diagnostics_mock_node
+# target_link_libraries(diagnostics_mock_node
 #   diagnostic_msgs
 #   rclcpp
 # )
@@ -286,9 +286,9 @@ add_library(node_commander_lib
 target_compile_definitions(node_commander_lib
   PUBLIC ROS2_CONSOLE_TOOLS_PACKAGE_VERSION=\"${ROS2_CONSOLE_TOOLS_PACKAGE_VERSION}\"
 )
-ament_target_dependencies(node_commander_lib
-  ament_index_cpp
-  rclcpp
+target_link_libraries(node_commander_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
 )
 target_include_directories(node_commander_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(
@@ -297,9 +297,9 @@ target_link_libraries(
 )
 
 add_executable(node_commander src/node_commander.cpp)
-ament_target_dependencies(node_commander
-  ament_index_cpp
-  rclcpp
+target_link_libraries(node_commander
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
 )
 target_include_directories(node_commander PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(node_commander node_commander_lib)
@@ -313,18 +313,18 @@ add_library(service_commander_lib
   src/service_commander_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(service_commander_lib
-  ament_index_cpp
-  rclcpp
-  rosidl_typesupport_introspection_cpp
+target_link_libraries(service_commander_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
 )
 target_include_directories(service_commander_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(service_commander_lib ${NCURSESW_LIBRARY})
 
 add_executable(service_commander src/service_commander.cpp)
-ament_target_dependencies(service_commander
-  rclcpp
-  rosidl_typesupport_introspection_cpp
+target_link_libraries(service_commander
+  rclcpp::rclcpp
+  rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
 )
 target_include_directories(service_commander PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(service_commander service_commander_lib)
@@ -338,16 +338,16 @@ add_library(action_commander_lib
   src/action_commander_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(action_commander_lib
-  ament_index_cpp
-  rclcpp
+target_link_libraries(action_commander_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
 )
 target_include_directories(action_commander_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(action_commander_lib ${NCURSESW_LIBRARY})
 
 add_executable(action_commander src/action_commander.cpp)
-ament_target_dependencies(action_commander
-  rclcpp
+target_link_libraries(action_commander
+  rclcpp::rclcpp
 )
 target_include_directories(action_commander PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(action_commander action_commander_lib)
@@ -361,20 +361,20 @@ add_library(tf_monitor_lib
   src/tf_monitor_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(tf_monitor_lib
-  ament_index_cpp
-  geometry_msgs
-  rclcpp
-  tf2_msgs
+target_link_libraries(tf_monitor_lib
+  ament_index_cpp::ament_index_cpp
+  geometry_msgs::geometry_msgs
+  rclcpp::rclcpp
+  tf2_msgs::tf2_msgs
 )
 target_include_directories(tf_monitor_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(tf_monitor_lib ${NCURSESW_LIBRARY})
 
 add_executable(tf_monitor src/tf_monitor.cpp)
-ament_target_dependencies(tf_monitor
-  geometry_msgs
-  rclcpp
-  tf2_msgs
+target_link_libraries(tf_monitor
+  geometry_msgs::geometry_msgs
+  rclcpp::rclcpp
+  tf2_msgs::tf2_msgs
 )
 target_include_directories(tf_monitor PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(tf_monitor tf_monitor_lib)
@@ -388,18 +388,18 @@ add_library(urdf_inspector_lib
   src/urdf_inspector_screen.cpp
   src/tui.cpp
 )
-ament_target_dependencies(urdf_inspector_lib
-  ament_index_cpp
-  rclcpp
-  urdf
+target_link_libraries(urdf_inspector_lib
+  ament_index_cpp::ament_index_cpp
+  rclcpp::rclcpp
+  urdf::urdf
 )
 target_include_directories(urdf_inspector_lib PUBLIC ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(urdf_inspector_lib ${NCURSESW_LIBRARY})
 
 add_executable(urdf_inspector src/urdf_inspector.cpp)
-ament_target_dependencies(urdf_inspector
-  rclcpp
-  urdf
+target_link_libraries(urdf_inspector
+  rclcpp::rclcpp
+  urdf::urdf
 )
 target_include_directories(urdf_inspector PRIVATE ${CURSES_INCLUDE_DIR} include)
 target_link_libraries(urdf_inspector urdf_inspector_lib)
@@ -438,10 +438,10 @@ if(BUILD_TESTING)
     test/service_commander_backend_test.cpp
   )
   if(TARGET service_commander_backend_test)
-    ament_target_dependencies(service_commander_backend_test
-      ament_index_cpp
-      rclcpp
-      rosidl_typesupport_introspection_cpp
+    target_link_libraries(service_commander_backend_test
+      ament_index_cpp::ament_index_cpp
+      rclcpp::rclcpp
+      rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
     )
     target_include_directories(service_commander_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(service_commander_backend_test
@@ -454,10 +454,10 @@ if(BUILD_TESTING)
     test/node_commander_screen_test.cpp
   )
   if(TARGET node_commander_screen_test)
-    ament_target_dependencies(node_commander_screen_test
-      ament_index_cpp
-      geometry_msgs
-      rclcpp
+    target_link_libraries(node_commander_screen_test
+      ament_index_cpp::ament_index_cpp
+      geometry_msgs::geometry_msgs
+      rclcpp::rclcpp
     )
     target_include_directories(node_commander_screen_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(node_commander_screen_test
@@ -470,11 +470,11 @@ if(BUILD_TESTING)
     test/topic_monitor_backend_test.cpp
   )
   if(TARGET topic_monitor_backend_test)
-    ament_target_dependencies(topic_monitor_backend_test
-      ament_index_cpp
-      geometry_msgs
-      rclcpp
-      rosidl_typesupport_introspection_cpp
+    target_link_libraries(topic_monitor_backend_test
+      ament_index_cpp::ament_index_cpp
+      geometry_msgs::geometry_msgs
+      rclcpp::rclcpp
+      rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp
     )
     target_include_directories(topic_monitor_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(topic_monitor_backend_test
@@ -486,9 +486,9 @@ if(BUILD_TESTING)
     test/parameter_commander_backend_test.cpp
   )
   if(TARGET parameter_commander_backend_test)
-    ament_target_dependencies(parameter_commander_backend_test
-      ament_index_cpp
-      rclcpp
+    target_link_libraries(parameter_commander_backend_test
+      ament_index_cpp::ament_index_cpp
+      rclcpp::rclcpp
     )
     target_include_directories(parameter_commander_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(parameter_commander_backend_test
@@ -500,10 +500,10 @@ if(BUILD_TESTING)
     test/image_viewer_backend_test.cpp
   )
   if(TARGET image_viewer_backend_test)
-    ament_target_dependencies(image_viewer_backend_test
-      ament_index_cpp
-      rclcpp
-      sensor_msgs
+    target_link_libraries(image_viewer_backend_test
+      ament_index_cpp::ament_index_cpp
+      rclcpp::rclcpp
+      sensor_msgs::sensor_msgs
     )
     target_include_directories(image_viewer_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(image_viewer_backend_test
@@ -515,10 +515,10 @@ if(BUILD_TESTING)
     test/laser_scan_viewer_backend_test.cpp
   )
   if(TARGET laser_scan_viewer_backend_test)
-    ament_target_dependencies(laser_scan_viewer_backend_test
-      ament_index_cpp
-      rclcpp
-      sensor_msgs
+    target_link_libraries(laser_scan_viewer_backend_test
+      ament_index_cpp::ament_index_cpp
+      rclcpp::rclcpp
+      sensor_msgs::sensor_msgs
     )
     target_include_directories(laser_scan_viewer_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(laser_scan_viewer_backend_test
@@ -530,10 +530,10 @@ if(BUILD_TESTING)
     test/tf_monitor_backend_test.cpp
   )
   if(TARGET tf_monitor_backend_test)
-    ament_target_dependencies(tf_monitor_backend_test
-      geometry_msgs
-      rclcpp
-      tf2_msgs
+    target_link_libraries(tf_monitor_backend_test
+      geometry_msgs::geometry_msgs
+      rclcpp::rclcpp
+      tf2_msgs::tf2_msgs
     )
     target_include_directories(tf_monitor_backend_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(tf_monitor_backend_test
@@ -546,8 +546,8 @@ if(BUILD_TESTING)
     src/tui.cpp
   )
   if(TARGET tui_test)
-    ament_target_dependencies(tui_test
-      ament_index_cpp
+    target_link_libraries(tui_test
+      ament_index_cpp::ament_index_cpp
     )
     target_include_directories(tui_test PRIVATE ${CURSES_INCLUDE_DIR} include)
     target_link_libraries(tui_test
